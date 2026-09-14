@@ -9,15 +9,5 @@
 
 在 `game-path.txt` 填入 Barotrauma 安裝目錄，再開啟 `Studio/Publish/Actiontrauma.Studio.exe`。設定檔不納入 Git；發布資料夾若移到其他位置，請將它放到 exe 旁。
 
-從此專案根目錄執行：
-
-```powershell
-dotnet build Studio/Actiontrauma.Studio.csproj
-dotnet run --project Studio/Actiontrauma.Studio.csproj -- --self-test
-dotnet run --project Tools/Actiontrauma.Cli -- self-test
-dotnet publish Studio/Actiontrauma.Studio.csproj -c Release -o Studio/Publish
-```
-
-Studio 需要 .NET 9 Desktop Runtime；編譯需要 .NET 9 SDK。遊戲端仍須啟用 Actiontrauma 與 LuaCs。兩端透過遊戲目錄的 `LocalMods/Actiontrauma/LiveLink` 通訊。
 
 修改格式版本、欄位或驗證上限時，請同步修改本專案的 `Studio/ProjectCodec.cs` 與模組專案的 `Lua/ActiontraumaTimeline.lua`。
